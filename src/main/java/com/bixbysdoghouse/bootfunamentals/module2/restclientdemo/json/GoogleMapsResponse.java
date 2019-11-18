@@ -11,11 +11,6 @@ public class GoogleMapsResponse {
     private List<Result> results;
     private String status;
 
-    public Optional<Location> getLocation() {
-        return hasResults() ?
-                getFirstResult().getLocation() : Optional.empty();
-    }
-
     public String getFormattedAddress() {
         return hasResults() ?
                 getFirstResult().getFormattedAddress() : StringUtils.EMPTY;
@@ -27,5 +22,20 @@ public class GoogleMapsResponse {
 
     private boolean hasResults() {
         return !CollectionUtils.isEmpty(results);
+    }
+
+    public double getLat() {
+        Optional<Location> location = getLocation();
+        return location.isPresent() ? location.get().getLat() : 0.00D;
+    }
+
+    public double getLng() {
+        Optional<Location> location = getLocation();
+        return location.isPresent() ? location.get().getLng() : 0.00D;
+    }
+
+    private Optional<Location> getLocation() {
+        return hasResults() ?
+                getFirstResult().getLocation() : Optional.empty();
     }
 }
