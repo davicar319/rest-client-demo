@@ -38,4 +38,8 @@ public class GoogleMapsResponse {
         return hasResults() ?
                 getFirstResult().getLocation() : Optional.empty();
     }
+
+    public boolean hasSuccessfulStatus() {
+        return status.equals("OK");
+    }
 }
