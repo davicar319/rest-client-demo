@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class GeoCoderService {
     private static final String BASE = "https://maps.googleapis.com/maps/api/geocode/json";
-    private static final String KEY = "PUT_KEY_IN_HERE";
+    private static final String KEY = "";
 
     private RestTemplate restTemplate;
 
